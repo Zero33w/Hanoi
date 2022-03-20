@@ -65,6 +65,19 @@ namespace Torres_de_Hanoi
             }
             return res;
         }
-       
+        public int algoritmo_recursivo(int n, Pila ini, Pila fin, Pila aux)
+        {
+            if (n == 1)
+            {
+                if (mover_disco(ini, fin)) m++;
+            }
+            else
+            {
+                algoritmo_recursivo(n - 1, ini, aux, fin);
+                if (mover_disco(ini, fin)) m++;
+                algoritmo_recursivo(n - 1, aux, fin, ini);
+            }
+            return m;
+        }
     }
 }

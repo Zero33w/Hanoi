@@ -35,6 +35,36 @@ namespace Torres_de_Hanoi
             }
         }
 
+        public int iterativo(int n, Pila ini, Pila fin, Pila aux)
+        {
+            int res = 0;
+
+            if (n % 2 != 0)//Si el numero de discos inicial es impar
+            {
+                while (fin.Size < n) //Mientras no hayan llegado todos los discos a la pila final
+                {
+                    if (mover_disco(ini, fin)) res++; //Si se puede mover el disco se suma 1 al contador de movimientos
+                    if (fin.Size == n) break; //Si fin ya tiene todos los discos, para
+
+                    if (mover_disco(ini, aux)) res++;
+
+                    if (mover_disco(aux, fin)) res++;
+                }
+            }
+            else //Si lo es
+            {
+                while (fin.Size < n)
+                {
+                    if (mover_disco(ini, aux)) res++;
+
+                    if (mover_disco(ini, fin)) res++;
+                    if (fin.Size == n) break;
+
+                    if (mover_disco(aux, fin)) res++;
+                }
+            }
+            return res;
+        }
        
     }
 }

@@ -8,11 +8,16 @@ namespace Torres_de_Hanoi
 {
     class Disco
     {
-        /*TODO: 
-        Decidir tipo de Valor
-        public int Valor { get; set; }
-        public String Valor { get; set; }
-        */
+        //Establece el tamaño del disco
+        private int Tam;
 
+        //Constructor del disco
+        public Disco(int x)
+        {
+            this.Tam = x;
+        }
+
+        //Devuelve el tamaño del disco
+        public int getTam() { return this.Tam; }
     }
 }
